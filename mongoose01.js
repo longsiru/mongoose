@@ -4,7 +4,7 @@
 const mongoose = require("mongoose");
 
 //4.和数据库建立连接。
-mongoose.connect("mongodb://127.0.0.1:27017/admin");
+mongoose.connect("mongodb://127.0.0.1:27017/sayo");
 
 //5.操作users表--定义一个schema, schema里面的对象和数据库表里面的字段需要一一对应
 var UserSchema = mongoose.Schema({
@@ -35,6 +35,7 @@ var u = new User({
 u.save();
 
 //9.修改数据
+//第一个参数是条件，第二个参数是要跟新的数据。第三个是执行回掉函数
 User.updateOne({ name: "lisi2222" }, { name: "哈哈哈" }, function (err, res) {
   if (err) {
     console.log(err);
