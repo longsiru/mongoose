@@ -4,12 +4,16 @@
   "description": "",
   "main": "mongoose01.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "devStart": "nodemon mongoose01.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "mongoose": "^7.0.3"
+  },
+  "devDependencies": {
+    "nodemo": "^1.0.0",
+    "nodemon": "^2.0.22"
   }
 }
