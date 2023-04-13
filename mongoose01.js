@@ -24,3 +24,52 @@ User.find({}, function (err, docs) {
   }
   console.log(docs);
 });
+
+//8。增加数据
+var u = new User({
+  //实例化模型 传入增加的数据
+  name: "lisi2222333",
+  age: 20,
+  status: true,
+});
+u.save();
+
+//9.修改数据
+User.updateOne({ name: "lisi2222" }, { name: "哈哈哈" }, function (err, res) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log("成功");
+});
+
+//10.删除数据
+User.deleteOne({ _id: "5b72ada84e284f0acc8d318a" }, function (err) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  // deleted at most one tank document
+  console.log("成功");
+});
+
+//11.保存成功查找
+var u = new User({
+  name: "lisi2222333",
+  age: 20,
+  status: true, //类型转换
+});
+u.save(function (err, docs) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  //console.log(docs);
+  User.find({}, function (err, docs) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log(docs);
+  });
+});
